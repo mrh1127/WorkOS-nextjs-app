@@ -26,7 +26,7 @@ export default async function UserManagementPage() {
 
     const widgetToken = await workos.widgets.getToken({
       userId: user.id,
-      organizationId, 
+      organizationId: organizationId as string, 
       scopes: ["widgets:users-table:manage"],
     });
 
