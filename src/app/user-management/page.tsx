@@ -15,7 +15,10 @@ export default async function UserManagementPage() {
 
     const { user, role, organizationId } = await withAuth({ ensureSignedIn: true });
 
-    requireAdminAccess({ role, organizationId });
+    requireAdminAccess({ 
+      role: role ?? null,
+      organizationId: organizationId ?? null,
+     });
 
     const widgetToken = await workos.widgets.getToken({
       userId: user.id,
